@@ -10,7 +10,10 @@ public class Computer {
 		this.parsedExpr = parsedExpr;
 	}
 	
-	public double compute() {
+	public MathematicalExpression compute() {	
+		if(parsedExpr.contains(Tokenizer.EQUALS_TOKEN)) {
+			return solveEquation();
+		}
 		Stack<Double> stack = new Stack<Double>();
 		
 		for(Token element : parsedExpr) {
@@ -100,7 +103,11 @@ public class Computer {
 			
 		}
 		
-		return stack.pop();
+		return new MathematicalExpression(stack.pop());
+	}
+	
+	private MathematicalExpression solveEquation() {
+		return new MathematicalExpression(0); //TODO
 	}
 
 }

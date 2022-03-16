@@ -11,6 +11,7 @@ public class Tokenizer {
 	
 	private static String[] OPERATORS = {"+", "-", "*", "/", "^"};
 	private static String[] FUNCTIONS = {"log", "exp", "root", "sin", "cos", "tan", "cot", "sign"};
+	public static Token EQUALS_TOKEN = new Token('=', TokenType.EQUALS);
 			
 			
 	public Tokenizer(String npexpr) {
@@ -50,6 +51,8 @@ public class Tokenizer {
 				tokens.add(new Token(chars[i], TokenType.PARENTHESIS));
 			} else if(chars[i] == ',') {
 				tokens.add(new Token(chars[i], TokenType.IDENTIFIER));
+			} else if(chars[i] == '=') {
+				tokens.add(EQUALS_TOKEN);
 			} else {
 				tokens.add(new Token(chars[i] + " (" + i + ")", TokenType.UNKNOWN));
 			}

@@ -74,6 +74,7 @@ public class Token {
 		OPERATOR,
 		IDENTIFIER,
 		PARENTHESIS,
+		EQUALS,
 		FUNCTION;
 	}
 	

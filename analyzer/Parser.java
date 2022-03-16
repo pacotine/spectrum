@@ -30,7 +30,7 @@ public class Parser {
 			Token current = tokens.get(i);
 			
 			switch (current.getType()) {
-			case NUMBER: case VARIABLE:
+			case NUMBER: case VARIABLE: case EQUALS:
 				output.push(current);
 				break;
 			
